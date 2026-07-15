@@ -51,6 +51,9 @@
   h1 em { font-style: normal; color: var(--accent); }
   .intro { font-size: 1.08rem; color: var(--dim); max-width: 640px; margin-bottom: 30px; }
   .intro strong { color: var(--text); font-weight: 600; }
+  .hero-top { display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+  .headshot { width: 215px; height: 215px; border-radius: 50%; border: 2px solid var(--line); flex-shrink: 0; box-shadow: 0 0 60px rgba(77,208,225,0.12); }
+  @media (max-width: 760px) { .hero-top { flex-direction: column-reverse; align-items: flex-start; } .headshot { width: 140px; height: 140px; } }
   .links { display: flex; flex-wrap: wrap; gap: 12px; }
   .btn { display: inline-block; padding: 10px 18px; border-radius: 8px; font-size: 0.9rem; border: 1px solid var(--line); color: var(--text); transition: all .15s; }
   .btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; transform: translateY(-1px); }
@@ -125,7 +128,7 @@
 
 <nav>
   <div class="wrap">
-    <div class="logo">dushyanth<span>@</span>portfolio<span>:~$</span></div>
+    <div class="logo">dushyanth<span>@</span>curious<span>:~$</span></div>
     <ul>
       <li><a href="#pipeline">Featured</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -138,6 +141,8 @@
 
 <header>
   <div class="wrap">
+    <div class="hero-top">
+    <div>
     <div class="kicker">// embedded software &amp; test engineer · Erlangen, Germany</div>
     <h1>I make hardware talk, tests run themselves,<br>and I <em>refuse to let my tools lie</em>.</h1>
     <p class="intro">
@@ -152,7 +157,9 @@
       <a class="btn primary" href="#pipeline">See my favourite build ↓</a>
       <a class="btn" href="https://github.com/dushyanth1409" target="_blank" rel="noopener">GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/dushyanth-yadanaparthi" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="mailto:dushyanth1409@gmail.com">Email</a>
+    </div>
+    </div>
+    <img class="headshot" src="avatar.png" alt="Dushyanth Yadanaparthi">
     </div>
     <div class="stats">
       <div class="stat"><b>11 yrs!</b><span>professional speed skater — still am, the discipline never left</span></div>
@@ -317,10 +324,13 @@
       </div>
     </div>
     <blockquote>
-      I built the Schaeffler test platform so complete that it no longer needed a student after me —
-      and I still feel a little bad that my over-enthusiasm may have cost the next person a wonderful
-      learning experience with such interesting topics, and the opportunity to work alongside a
-      wonderful team.
+      I walked into Schaeffler with no power-electronics or embedded experience — just Python, C/C++,
+      MATLAB, and a team willing to let me learn. By the end, the test platform I built had so many
+      failsafes, and live data reviewable from anywhere with the right access, that it no longer needed
+      anyone's personal attention. The research continues — but I still feel a little bad that the next
+      student won't get to <em>build</em> the way I did. They'll analyse results from a machine that's
+      already finished. My over-enthusiasm may have cost someone the same wonderful hands-on learning,
+      with such interesting topics, alongside a wonderful team.
       <footer>— a lesson I didn't expect from a test bench</footer>
     </blockquote>
   </div>
@@ -404,10 +414,8 @@
       roles in Germany. If any of the above sounds like your kind of engineering, I'd love to talk.
     </p>
     <div class="links" style="justify-content:center">
-      <a class="btn primary" href="mailto:dushyanth1409@gmail.com">dushyanth1409@gmail.com</a>
-      <a class="btn" href="tel:+4917671707657">+49 176 7170 7657</a>
+      <a class="btn primary" href="https://www.linkedin.com/in/dushyanth-yadanaparthi" target="_blank" rel="noopener">Message me on LinkedIn</a>
       <a class="btn" href="https://github.com/dushyanth1409" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/dushyanth-yadanaparthi" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
 </footer>
