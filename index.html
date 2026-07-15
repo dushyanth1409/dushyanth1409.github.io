@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dushyanth Yadanaparthi — Embedded Software & Test Engineer</title>
+<meta name="description" content="Embedded software & test engineer. C/C++ firmware, Python automation, honest engineering. M.Sc. Electromobility, FAU Erlangen-Nürnberg.">
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #131a24;
+    --card: #171f2b;
+    --line: #263243;
+    --text: #d7dee8;
+    --dim: #8b98a9;
+    --accent: #4dd0e1;
+    --accent2: #ffb74d;
+    --mono: "SF Mono", "Cascadia Code", Consolas, "Roboto Mono", monospace;
+    --sans: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.65; }
+  ::selection { background: var(--accent); color: #06282e; }
+
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 72px 0; }
+  h2 { font-size: 1.5rem; margin-bottom: 8px; letter-spacing: -0.01em; }
+  h2 .hash { color: var(--accent); font-family: var(--mono); margin-right: 8px; }
+  .lead { color: var(--dim); max-width: 700px; margin-bottom: 36px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code { font-family: var(--mono); font-size: 0.9em; background: var(--bg2); border: 1px solid var(--line); border-radius: 4px; padding: 1px 6px; }
+
+  /* nav */
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(13,17,23,0.85); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 54px; }
+  nav .logo { font-family: var(--mono); color: var(--text); font-weight: 600; font-size: 0.95rem; }
+  nav .logo span { color: var(--accent); }
+  nav ul { display: flex; gap: 22px; list-style: none; }
+  nav ul a { color: var(--dim); font-size: 0.88rem; }
+  nav ul a:hover { color: var(--accent); text-decoration: none; }
+  @media (max-width: 640px) { nav ul { display: none; } }
+
+  /* hero */
+  header { padding: 110px 0 90px; background:
+    radial-gradient(ellipse 60% 50% at 70% 20%, rgba(77,208,225,0.07), transparent),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(255,183,77,0.05), transparent); }
+  .kicker { font-family: var(--mono); color: var(--accent); font-size: 0.85rem; margin-bottom: 18px; }
+  h1 { font-size: clamp(2.1rem, 5.5vw, 3.4rem); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 20px; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .intro { font-size: 1.08rem; color: var(--dim); max-width: 640px; margin-bottom: 30px; }
+  .intro strong { color: var(--text); font-weight: 600; }
+  .links { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-block; padding: 10px 18px; border-radius: 8px; font-size: 0.9rem; border: 1px solid var(--line); color: var(--text); transition: all .15s; }
+  .btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; transform: translateY(-1px); }
+  .btn.primary { background: var(--accent); color: #06282e; border-color: var(--accent); font-weight: 600; }
+  .btn.primary:hover { color: #06282e; filter: brightness(1.1); }
+
+  /* stat strip */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-top: 56px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
+  .stat b { display: block; font-family: var(--mono); font-size: 1.35rem; color: var(--accent); }
+  .stat span { font-size: 0.8rem; color: var(--dim); }
+
+  /* centerpiece */
+  .feature { background: var(--bg2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .principle { font-family: var(--mono); font-size: 1.05rem; color: var(--accent2); border-left: 3px solid var(--accent2); padding: 8px 0 8px 18px; margin: 30px 0; }
+  .fgrid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 36px; align-items: start; }
+  @media (max-width: 760px) { .fgrid { grid-template-columns: 1fr; } }
+  .fgrid p { margin-bottom: 16px; }
+  .pipeline-box { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 22px; font-family: var(--mono); font-size: 0.78rem; color: var(--dim); }
+  .pipeline-box .step { padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px; margin-bottom: 6px; background: var(--bg); }
+  .pipeline-box .step.hot { border-color: var(--accent); color: var(--accent); }
+  .pipeline-box .arrow { text-align: center; color: var(--line); line-height: 1; margin-bottom: 6px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .tag { font-family: var(--mono); font-size: 0.72rem; color: var(--dim); border: 1px solid var(--line); border-radius: 20px; padding: 3px 11px; }
+
+  /* projects */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; transition: all .15s; }
+  .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .card h3 { font-size: 1.05rem; margin-bottom: 10px; }
+  .card p { font-size: 0.9rem; color: var(--dim); flex: 1; margin-bottom: 14px; }
+  .card .tags { margin-top: 0; }
+  .card .repo { font-family: var(--mono); font-size: 0.78rem; margin-top: 14px; }
+
+  /* how i work */
+  .rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .rule { border-left: 2px solid var(--accent); padding: 4px 0 4px 18px; }
+  .rule h3 { font-size: 0.98rem; margin-bottom: 6px; }
+  .rule p { font-size: 0.88rem; color: var(--dim); }
+  blockquote { border-left: 3px solid var(--accent2); padding: 14px 22px; margin: 40px 0 0; color: var(--dim); font-style: italic; max-width: 720px; }
+  blockquote footer { font-style: normal; font-family: var(--mono); font-size: 0.78rem; margin-top: 8px; color: var(--accent2); }
+
+  /* experience */
+  .xp { border-left: 1px solid var(--line); margin-left: 8px; }
+  .job { position: relative; padding: 0 0 40px 30px; }
+  .job::before { content: ""; position: absolute; left: -5px; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+  .job .when { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); }
+  .job h3 { font-size: 1.05rem; margin: 4px 0 2px; }
+  .job .where { color: var(--dim); font-size: 0.88rem; margin-bottom: 10px; }
+  .job p { font-size: 0.92rem; color: var(--dim); max-width: 720px; }
+
+  /* skills */
+  .skillrow { display: grid; grid-template-columns: 190px 1fr; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
+  .skillrow:first-of-type { border-top: 1px solid var(--line); }
+  .skillrow b { color: var(--text); font-weight: 600; }
+  .skillrow span { color: var(--dim); font-family: var(--mono); font-size: 0.82rem; }
+  @media (max-width: 560px) { .skillrow { grid-template-columns: 1fr; gap: 2px; } }
+
+  /* skating */
+  .skate { background: var(--bg2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .skate p { max-width: 720px; color: var(--dim); margin-bottom: 16px; }
+  .skate p strong { color: var(--text); }
+
+  /* footer */
+  footer.contact { padding: 90px 0; text-align: center; }
+  footer.contact h2 { font-size: 2rem; margin-bottom: 14px; }
+  footer.contact p { color: var(--dim); max-width: 520px; margin: 0 auto 30px; }
+  .fineprint { padding: 26px 0 34px; text-align: center; color: var(--dim); font-size: 0.75rem; font-family: var(--mono); border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">dushyanth<span>@</span>portfolio<span>:~$</span></div>
+    <ul>
+      <li><a href="#pipeline">Featured</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#how">How I work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">// embedded software &amp; test engineer · Erlangen, Germany</div>
+    <h1>I make hardware talk, tests run themselves,<br>and I <em>refuse to let my tools lie</em>.</h1>
+    <p class="intro">
+      I'm <strong>Dushyanth Yadanaparthi</strong> — a mechanical engineer who fell in love with firmware,
+      currently finishing an <strong>M.Sc. in Electromobility</strong> — majoring in
+      <strong>AI &amp; Sustainability</strong> — at FAU Erlangen-Nürnberg.
+      I've built motor test platforms at <strong>Schaeffler</strong>, production tooling at <strong>Bosch</strong>,
+      and an AI application pipeline that is mechanically incapable of exaggerating my skills.
+      I like problems I don't understand yet — that's usually where the good stuff is.
+    </p>
+    <div class="links">
+      <a class="btn primary" href="#pipeline">See my favourite build ↓</a>
+      <a class="btn" href="https://github.com/dushyanth1409" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/dushyanth-yadanaparthi" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="mailto:dushyanth1409@gmail.com">Email</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>11 yrs!</b><span>professional speed skater — still am, the discipline never left</span></div>
+      <div class="stat"><b>2 careers</b><span>mechanical engineer by degree, firmware engineer by curiosity — I walk into fields I don't know yet</span></div>
+      <div class="stat"><b>A2 → B1</b><span>German in progress — building a life in Germany, not just a career</span></div>
+      <div class="stat"><b>0</b><span>skills I'll ever claim but can't defend — honesty is how I build, not just what I say</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="feature" id="pipeline">
+  <div class="wrap">
+    <h2><span class="hash">01.</span>The Honest Job-Application Pipeline</h2>
+    <p class="lead">The project that says the most about how I think — born out of frustration, built around one non-negotiable rule.</p>
+    <div class="fgrid">
+      <div>
+        <p>
+          Job hunting as an engineer is a strange loop: you spend hours tailoring documents for
+          screening algorithms that reject most people in milliseconds. I automated the whole thing —
+          a Python pipeline that searches job boards nightly, scores each listing against my real profile
+          with Claude, tailors my CV and cover letter, compiles LaTeX PDFs, tracks every application in
+          SQLite, and knows exactly what each run cost.
+        </p>
+        <p>
+          But the interesting part isn't the automation. An LLM tailoring a CV will happily invent the
+          skill a job asks for — it reads perfectly and it's a lie. So the pipeline classifies every
+          job requirement against my profile (<code>EXACT</code> / <code>SYNONYM</code> /
+          <code>ADJACENT</code> / <code>MISSING</code>), and then <strong>verifies every claim in code</strong>:
+          any mapping the model can't back with real profile text gets downgraded, and a fact-checker
+          flags anything unverifiable in the output before I ever see it.
+        </p>
+        <div class="principle">The model proposes, the code disposes.<br>Nothing enters my CV that my profile can't prove.</div>
+        <p>
+          The design is informed by Stanford's research on <a href="https://algorithmichiring.github.io/"
+          target="_blank" rel="noopener">algorithmic monocultures in hiring</a> — screening is per-position
+          keyword coverage, so honest terminology alignment matters and fabrication never does. The pipeline
+          even aggregates the skills I <em>don't</em> have across all postings into a ranked learning
+          roadmap. It doesn't just apply for me; it tells me what to study next.
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">Claude API</span><span class="tag">LaTeX</span>
+          <span class="tag">SQLite</span><span class="tag">APScheduler</span><span class="tag">structured JSON</span>
+          <span class="tag">prompt + code verification</span>
+        </div>
+        <div class="repo" style="margin-top:16px"><a href="https://github.com/dushyanth1409/automated-job-application-with-cv-and-coverletter" target="_blank" rel="noopener">→ automated-job-application-with-cv-and-coverletter</a></div>
+      </div>
+      <div class="pipeline-box">
+        <div class="step">🔍 search job boards, nightly</div>
+        <div class="arrow">↓</div>
+        <div class="step">🧠 fit score + skill classification</div>
+        <div class="arrow">↓</div>
+        <div class="step hot">🛡 code-side verification — unproven claims downgraded</div>
+        <div class="arrow">↓</div>
+        <div class="step">✍️ tailor CV &amp; cover letter under the verified contract</div>
+        <div class="arrow">↓</div>
+        <div class="step hot">🕵️ fact-check output — fabrications flagged</div>
+        <div class="arrow">↓</div>
+        <div class="step">📄 LaTeX PDFs · tracker · cost log · skill-gap report</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2><span class="hash">02.</span>More things I've built</h2>
+    <p class="lead">Mostly embedded, mostly from curiosity, all of them taught me something a course couldn't.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>CAN Bus Fault Detection &amp; Anomaly Monitoring</h3>
+        <p>A full fault-detection stack for CAN traffic: a virtual-clock simulator generates realistic
+        bus traffic and injects a scheduled fault campaign with ground-truth labels, then interpretable
+        timing and value detectors — trained only on clean traffic — catch silence, delay, bursts and
+        implausible signals (100% recall/precision on the default campaign, zero false positives), and a
+        rules-based diagnosis layer turns detections into DTC-style plain-language fault reports.
+        Pure-stdlib Python, CI-tested, measured rather than claimed.</p>
+        <div class="tags"><span class="tag">CAN bus</span><span class="tag">anomaly detection</span><span class="tag">discrete-event simulation</span><span class="tag">Python</span><span class="tag">CI</span></div>
+        <div class="repo"><a href="https://github.com/dushyanth1409/CAN-bus-fault-detection-and-anomaly-monitoring-" target="_blank" rel="noopener">→ CAN-bus-fault-detection</a></div>
+      </div>
+      <div class="card">
+        <h3>IMU Sensor Fusion</h3>
+        <p>Complementary, Madgwick, and Extended Kalman filters, written twice: in Python to understand
+        them, then in bare-metal C on STM32 and Arduino to respect them. Benchmarked accuracy (RMSE)
+        against compute cost to map the real trade-offs on constrained hardware. The project that taught
+        me to fall in love with a hard idea instead of fearing it.</p>
+        <div class="tags"><span class="tag">bare-metal C</span><span class="tag">STM32</span><span class="tag">EKF</span><span class="tag">Python</span></div>
+        <div class="repo"><a href="https://github.com/dushyanth1409/imu-sensor-fusion" target="_blank" rel="noopener">→ imu-sensor-fusion</a></div>
+      </div>
+      <div class="card">
+        <h3>Embedded Signal Toolkit</h3>
+        <p>A DSP library — FIR, IIR/biquad, moving-average filters, and an FFT analyzer — in portable C99
+        for microcontrollers. Every filter validated in Python simulation before being squeezed into
+        firmware. I loved the craft of making something small and efficient enough to fit.</p>
+        <div class="tags"><span class="tag">C99</span><span class="tag">DSP</span><span class="tag">FFT</span><span class="tag">simulation-first</span></div>
+        <div class="repo"><a href="https://github.com/dushyanth1409/embedded-signal-toolkit" target="_blank" rel="noopener">→ embedded-signal-toolkit</a></div>
+      </div>
+      <div class="card">
+        <h3>TinyML Predictive Maintenance</h3>
+        <p>A vibration-based fault-detection model built on FFT features, running on-device with
+        TensorFlow Lite Micro for real-time motor health monitoring. The idea of a tiny chip quietly
+        listening for trouble before it happens still delights me.</p>
+        <div class="tags"><span class="tag">TFLite Micro</span><span class="tag">TinyML</span><span class="tag">FFT features</span><span class="tag">on-device inference</span></div>
+        <div class="repo"><a href="https://github.com/dushyanth1409/tinyml-predictive-maintenance" target="_blank" rel="noopener">→ tinyml-predictive-maintenance</a></div>
+      </div>
+      <div class="card">
+        <h3>Autonomous Lane Detection</h3>
+        <p>A modular OpenCV pipeline — Canny edges, ROI masking, Hough transform, polynomial lane fitting —
+        producing annotated overlays with curvature and vehicle-offset estimates for image and video streams.</p>
+        <div class="tags"><span class="tag">OpenCV</span><span class="tag">Python</span><span class="tag">computer vision</span></div>
+        <div class="repo"><a href="https://github.com/dushyanth1409/autonomous-lane-detection" target="_blank" rel="noopener">→ autonomous-lane-detection</a></div>
+      </div>
+      <div class="card">
+        <h3>Production Dashboards @ Bosch</h3>
+        <p>Role-based OutSystems dashboards with CRUD workflows that the software team actually used in
+        production, plus centralized failure catalogues — built with no stated requirements and no
+        hand-holding. The project that taught me to deliver inside ambiguity.</p>
+        <div class="tags"><span class="tag">OutSystems</span><span class="tag">role-based access</span><span class="tag">production</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2><span class="hash">03.</span>How I work</h2>
+    <p class="lead">Rules I didn't read anywhere — each one cost me something to learn.</p>
+    <div class="rules">
+      <div class="rule">
+        <h3>Break it until you can grasp it</h3>
+        <p>I walked into power electronics knowing almost nothing. What carried me was breaking every
+        problem into the smallest piece I could actually reason about — schematics line by line,
+        signals edge by edge — until the overwhelming became workable.</p>
+      </div>
+      <div class="rule">
+        <h3>Simulate before you trust hardware</h3>
+        <p>Every filter in my DSP toolkit ran in Python before it ran in firmware. Validating in
+        simulation first isn't slower — it's the difference between debugging logic and debugging
+        logic, wiring, and physics at the same time.</p>
+      </div>
+      <div class="rule">
+        <h3>The unglamorous part is the project</h3>
+        <p>File formats, wiring, timing budgets, a .DXD exporter producing a gigabyte per second — the
+        "real" signal work is often the smallest part. Integration is where projects live or die,
+        so that's where I put my attention.</p>
+      </div>
+      <div class="rule">
+        <h3>A failing standard method is an invitation</h3>
+        <p>When noisy square waves made the textbook RPM method useless, the answer wasn't a wall —
+        it was understanding the signal more deeply and building my own pulse counting and filtering.
+        Some of my proudest work came from problems I never expected to have.</p>
+      </div>
+      <div class="rule">
+        <h3>Honesty is a design constraint</h3>
+        <p>I made my own job pipeline less impressive on paper so it could never overclaim on my behalf.
+        I'd rather be questioned on something I truly know than praised for something I don't.</p>
+      </div>
+      <div class="rule">
+        <h3>Measure everything, including yourself</h3>
+        <p>Token costs per API call, response rates per score band, cents per application. If a system
+        matters, it should be able to tell you what it's doing and what it costs — mine can, and I hold
+        my own work to the same standard.</p>
+      </div>
+    </div>
+    <blockquote>
+      I built the Schaeffler test platform so complete that it no longer needed a student after me —
+      and I still feel a little bad that my over-enthusiasm may have cost the next person a wonderful
+      learning experience with such interesting topics, and the opportunity to work alongside a
+      wonderful team.
+      <footer>— a lesson I didn't expect from a test bench</footer>
+    </blockquote>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2><span class="hash">04.</span>Where I've worked</h2>
+    <p class="lead">Three very different environments; each rewired something about how I engineer.</p>
+    <div class="xp">
+      <div class="job">
+        <div class="when">Mar 2025 — Sep 2025</div>
+        <h3>Software Engineering Working Student</h3>
+        <div class="where">Robert Bosch GmbH · Reutlingen</div>
+        <p>Python data workflows for logging and traceability in live production, OutSystems dashboards
+        the software team relied on, failure catalogues, CAD models for adhesive application. No stated
+        requirements, minimal support — a deliberate "analyse and come to a conclusion" culture that
+        first panicked me, then taught me to work from instinct and own the outcome.</p>
+      </div>
+      <div class="job">
+        <div class="when">Apr 2024 — Sep 2024</div>
+        <h3>Embedded Software Engineer Intern</h3>
+        <div class="where">Schaeffler Automotive · Bühl</div>
+        <p>Built an end-to-end test platform for current-induced bearing degradation in BLDC motors, from
+        reading schematics and reworking the PCB to C/C++ firmware for motor signal generation, a Python
+        DAQ pipeline ingesting 200&nbsp;kHz Dewesoft data (~1&nbsp;GB per second of recording), automated FFT
+        analysis with cloud upload and limit-based test halting inside a 2-second budget — and a custom
+        noise-filtered RPM recovery when the textbook method drowned in noise. I walked in barely knowing
+        the field; I walked out understanding every layer, thanks in no small part to a manager who took
+        a leap of faith on me.</p>
+      </div>
+      <div class="job">
+        <div class="when">Sep 2021 — Feb 2022</div>
+        <h3>Power Plant Engineer Intern</h3>
+        <div class="where">Andhra Pradesh Power Distribution Corporation Ltd · India</div>
+        <p>Operation and maintenance of thermal power generation — boilers, steam turbines, industrial
+        energy systems. Where I first learned that big machines demand respect, process, and paperwork.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2><span class="hash">05.</span>Toolbox</h2>
+    <p class="lead">What I reach for, grouped the way I actually use it.</p>
+    <div class="skillrow"><b>Programming</b><span>Python · C · C++ · MATLAB · Git · Bash · Linux · SQL · CI/CD · REST APIs</span></div>
+    <div class="skillrow"><b>Embedded &amp; Sensors</b><span>STM32 · Arduino · Raspberry Pi · RTOS · bare-metal firmware · CAN · UART · SPI · I2C · IMU sensor fusion</span></div>
+    <div class="skillrow"><b>Test &amp; Measurement</b><span>test bench development · signal processing · FFT analysis · DAQ systems · oscilloscopes · PCB testing &amp; debugging · soldering</span></div>
+    <div class="skillrow"><b>ML &amp; Vision</b><span>machine learning · TensorFlow Lite / TinyML · OpenCV</span></div>
+    <div class="skillrow"><b>Design &amp; Simulation</b><span>SolidWorks · Creo · Fusion 360 · ANSYS · KiCad</span></div>
+    <div class="skillrow"><b>Industrial Tools</b><span>Power BI · Tableau · AWS · Azure · FAMOS · OutSystems · Dewesoft</span></div>
+    <div class="skillrow"><b>Languages</b><span>English (C1) · German (A2, B1 in progress)</span></div>
+  </div>
+</section>
+
+<section class="skate">
+  <div class="wrap">
+    <h2><span class="hash">06.</span>Before the firmware, there was ice</h2>
+    <p>
+      I am a <strong>professional speed skater</strong>. Eleven years of it — seven to eight hours a day,
+      every day, alongside school and my bachelor's. State medals, national medals, and a body that learned
+      what discipline actually costs.
+    </p>
+    <p>
+      These days the ice shares me with a different career path, but the skater never left — that's not a
+      past tense, just a changed training plan. It's why I can sit with a broken build for hours without
+      despair, why consistency matters more to me than bursts of brilliance, and why "keep showing up" is
+      the closest thing I have to a philosophy. When my peers at Anna University elected me student
+      representative two years running, and when I led the organising committee for two more — that was
+      the same muscle. It always is.
+    </p>
+  </div>
+</section>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's build something that works.</h2>
+    <p>
+      I'm finishing my M.Sc. in 2026 and looking for embedded software, firmware, and test engineering
+      roles in Germany. If any of the above sounds like your kind of engineering, I'd love to talk.
+    </p>
+    <div class="links" style="justify-content:center">
+      <a class="btn primary" href="mailto:dushyanth1409@gmail.com">dushyanth1409@gmail.com</a>
+      <a class="btn" href="tel:+4917671707657">+49 176 7170 7657</a>
+      <a class="btn" href="https://github.com/dushyanth1409" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/dushyanth-yadanaparthi" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<div class="fineprint">
+  built by hand, one file, no frameworks — because a portfolio should practice what it preaches · © 2026 Dushyanth Yadanaparthi
+</div>
+
+</body>
+</html>
